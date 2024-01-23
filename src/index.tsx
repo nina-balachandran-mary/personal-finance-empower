@@ -20,7 +20,7 @@ const router = createBrowserRouter([
 
     {
         path: "/accounts",
-        element: <Accounts/>,
+        element: <Accounts allAccounts={[]} currencyCode={''}/>,
     },
 
     {
