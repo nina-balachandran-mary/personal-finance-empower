@@ -4,8 +4,9 @@ import {Account} from "./types/Account";
 import {AccountsSummary} from "./AccountsSummary";
 import {WeeklyReport} from "./WeeklyReport";
 import './App.css';
+import {Navigation} from "./Navigation";
 
-function App() {
+export const App = () => {
     const [accounts, setAccounts] = useState<Account[]>([])
     const [currencyCode, setCurrencyCode] = useState('')
     const [categories, setCategories] = useState<Record<string, Record<string, number>>>({})
@@ -37,6 +38,7 @@ function App() {
 
     return (
         <div className="App">
+            <Navigation/>
             <AccountsSummary totalBalance={totalBalance} currencyCode={currencyCode}/>
             <Accounts allAccounts={accounts} currencyCode={currencyCode}/>
             {/* Assumption: All account currencies is of the same type */}
@@ -45,4 +47,3 @@ function App() {
     );
 }
 
-export default App;
