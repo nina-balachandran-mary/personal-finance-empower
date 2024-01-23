@@ -7,6 +7,7 @@ import {Accounts} from "./Accounts";
 import {Trackers} from "./Trackers";
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {Navigation} from "./Navigation";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
