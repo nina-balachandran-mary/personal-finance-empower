@@ -20,7 +20,7 @@ export const App = () => {
 
     return (
         <div className="App">
-            <Accounts/>
+            <Accounts showAllAccounts={false}/>
             {/* Assumption: All account currencies is of the same type */}
             {categories.data ? <WeeklyReport categories={categories.data} currencyCode={categories.iso_currency_code}/> : ''}
         </div>

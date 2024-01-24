@@ -52,13 +52,8 @@ app.get('/accounts', (req, res) => {
 
 app.get('/transactions/:accountId', (req, res) => {
     const accountId = req.params.accountId
-    if (!accountId) {
-        res.write([])
-    } else {
-        const transactions = data.transactions.filter(t => t.account_id === accountId)
-        res.write(transactions)
-    }
-    res.end()
+    let transactions = data.transactions.filter(t => t.account_id === accountId)
+    res.send(transactions)
 })
 
 app.get('/weeklyExpenses', (req, res) => {
