@@ -6,38 +6,28 @@ import {Transactions} from "./Transactions";
 import {Accounts} from "./Accounts";
 import {Trackers} from "./Trackers";
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Navigation} from "./Navigation";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App/>
-    },
-
-    {
-        path: "/accounts",
-        element: <Accounts allAccounts={[]} currencyCode={''}/>,
-    },
-
-    {
-        path: "/transactions/:accountId",
-        element: <Transactions/>,
-    },
-
-    {
-        path: "/trackers",
-        element: <Trackers/>,
-    },
-])
-
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router}/>
+        <BrowserRouter>
+            <Navigation/>
+            <Routes>
+                <Route element={<App/>}
+                       path="/"/>
+                <Route element={<Accounts allAccounts={[]} currencyCode={''}/>}
+                       path="/accounts"/>
+                <Route element={<Transactions/>}
+                       path="/transactions/:accountId"/>
+                <Route element={<Trackers/>}
+                       path="/trackers"/>
+            </Routes>
+        </BrowserRouter>
     </React.StrictMode>
 );
 

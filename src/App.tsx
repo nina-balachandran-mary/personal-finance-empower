@@ -4,7 +4,6 @@ import {Account} from "./types/Account";
 import {AccountsSummary} from "./AccountsSummary";
 import {WeeklyReport} from "./WeeklyReport";
 import './App.css';
-import {Navigation} from "./Navigation";
 
 export const App = () => {
     const [accounts, setAccounts] = useState<Account[]>([])
@@ -38,7 +37,6 @@ export const App = () => {
 
     return (
         <div className="App">
-            <Navigation/>
             <AccountsSummary totalBalance={totalBalance} currencyCode={currencyCode}/>
             <Accounts allAccounts={accounts} currencyCode={currencyCode}/>
             {/* Assumption: All account currencies is of the same type */}
