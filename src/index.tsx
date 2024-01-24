@@ -20,7 +20,7 @@ root.render(
             <Routes>
                 <Route element={<App/>}
                        path="/"/>
-                <Route element={<Accounts allAccounts={[]} currencyCode={''}/>}
+                <Route element={<Accounts/>}
                        path="/accounts"/>
                 <Route element={<Transactions/>}
                        path="/transactions/:accountId"/>

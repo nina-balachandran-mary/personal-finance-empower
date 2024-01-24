@@ -64,6 +64,7 @@ app.get('/transactions/:accountId', (req, res) => {
 app.get('/weeklyExpenses', (req, res) => {
     // Filter transactions in the last week and sum them up against a personal_finance_category
     let categories = {}
+    const iso_currency_code = data.transactions[0].iso_currency_code
     const prevWeek = Date.now() - 604800000 //ms in a week
     for (let c = 0; c < data.transactions.length; c += 1) {
         const category = data.transactions[c].personal_finance_category.primary
@@ -76,7 +77,7 @@ app.get('/weeklyExpenses', (req, res) => {
         }
         categories[category] += data.transactions[c].amount
     }
-    res.send({data: categories})
+    res.send({data: categories, iso_currency_code})
 })
 
 app.get('/tracker/get', async (req, res) => {

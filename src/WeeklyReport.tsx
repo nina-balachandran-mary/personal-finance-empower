@@ -6,7 +6,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface WeeklyReportProps {
     categories: Record<string, number>,
-    currency: string | null,
+    currencyCode: string | null,
 }
 
 const getChartColors = (noOfColors: number) => {
@@ -17,13 +17,13 @@ const getChartColors = (noOfColors: number) => {
     return chartColors
 }
 
-export const WeeklyReport = ({categories, currency}: WeeklyReportProps) => {
+export const WeeklyReport = ({categories, currencyCode}: WeeklyReportProps) => {
     const chartColors = getChartColors(Object.keys(categories).length)
 
     const data = {
         labels: Object.keys(categories),
         datasets: [{
-            label: `Amount in ${currency}`,
+            label: `Amount in ${currencyCode}`,
             data: Object.values(categories),
             backgroundColor: chartColors,
             hoverOffset: 4
