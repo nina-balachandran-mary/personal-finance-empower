@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "name": "INCOME",
+      "pretty_name": "Income",
+      "description:": "Income from various sources"
+    },
+    {
+      "name": "TRANSFER_IN",
+      "pretty_name": "Transfer in",
+      "description:": "Loans and cash advances deposited into a bank account"
+    },
+    {
+      "name": "TRANSFER_OUT",
+      "pretty_name": "Transfer out",
+      "description": "Transfers to an investment or retirement account, including investment apps such as Acorns, Betterment"
+    },
+    {
+      "name": "LOAN_PAYMENTS",
+      "pretty_name": "Loan payments",
+      "description": "Car loans and leases"
+    },
+    {
+      "name": "BANK_FEES",
+      "pretty_name": "Bank fees",
+      "description": "Fees incurred for out-of-network ATMs"
+    },
+    {
+      "name": "ENTERTAINMENT",
+      "pretty_name": "Entertainment",
+      "description": "Gambling, casinos, and sports betting"
+    },
+    {
+      "name": "FOOD_AND_DRINK",
+      "pretty_name": "Food and drink",
+      "description": "Beer, Wine & Liquor Stores"
+    },
+    {
+      "name": "GENERAL_MERCHANDISE",
+      "pretty_name": "General Merchandise",
+      "description": "Books, magazines, and news"
+    },
+    {
+      "name": "HOME_IMPROVEMENT",
+      "pretty_name": "Home improvement",
+      "description": "Furniture, bedding, and home accessories"
+    },
+    {
+      "name": "MEDICAL",
+      "pretty_name": "Medical care",
+      "description": "Dentists and general dental care"
+    },
+    {
+      "name": "PERSONAL_CARE",
+      "pretty_name": "Personal care",
+      "description": "Gyms, fitness centers, and workout classes"
+    },
+    {
+      "name": "GENERAL_SERVICES",
+      "pretty_name": "General services",
+      "description": "Financial planning, and tax and accounting services"
+    },
+    {
+      "name": "GOVERNMENT_AND_NON_PROFIT",
+      "pretty_name": "Government and Non-profit",
+      "description": "Charitable, political, and religious donations"
+    },
+    {
+      "name": "TRANSPORTATION",
+      "pretty_name": "Transportation",
+      "description": "Bike and scooter rentals"
+    },
+    {
+      "name": "TRAVEL",
+      "pretty_name": "Travel",
+      "description": "Airline expenses"
+    },
+    {
+      "name": "RENT_AND_UTILITIES",
+      "pretty_name": "Rent and utilities",
+      "description": "Gas and electricity bills"
+    }
+  ]
+}

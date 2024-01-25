@@ -2,8 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const sqlite3 = require('sqlite3').verbose();
 
-// importing local data for accounts and transactions
-const data = require('../data/mockData.json')
+// importing local data for accounts, transactions and categories
+const data = require('../assets/data/mockData.json')
+const categories = require('../assets/data/category.json')
 
 // Setting up PORT, hardcoded for the purpose of this exercise
 const PORT = 3001;
@@ -26,11 +27,11 @@ function createTables(db) {
         personal_finance_category text not null,
         created_at text
     );
+    
     insert into trackers (name, amount, personal_finance_category, created_at)
-        values ('Games', 70, 'ENTERTAIMENT', CURRENT_TIMESTAMP)
+        values ('Games', 70, 'ENTERTAINMENT', CURRENT_TIMESTAMP);
     `);
 }
-
 
 let db = new sqlite3.Database('', (err) => {
     if (err) {
@@ -73,6 +74,10 @@ app.get('/weeklyExpenses', (req, res) => {
         categories[category] += data.transactions[c].amount
     }
     res.send({data: categories, iso_currency_code})
+})
+
+app.get('/categories', (req, res) => {
+    res.send(categories.data)
 })
 
 app.get('/tracker/get', async (req, res) => {

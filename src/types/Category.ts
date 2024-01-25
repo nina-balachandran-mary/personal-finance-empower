@@ -1,10 +1,6 @@
 export type Category = {
-    category_id: string,
-    group: string,
-    hierarchy: string[]
-}
-
-export type Categories = {
-    categories: Category[],
-    request_id: string
+    category_id: number,
+    name: string,
+    pretty_name: string,
+    description: string
 }

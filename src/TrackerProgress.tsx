@@ -19,14 +19,12 @@ const BorderLinearProgress = styled(LinearProgress)(({theme}) => ({
 
 export const TrackerProgress = ({value}: TrackerProgressProps) => {
     return (
-        <Box display="flex" alignItems="center" p={3}>
+        <Box display="flex" alignItems="center">
             <Box width="100%" mr={3}>
                 <BorderLinearProgress variant="determinate" value={value}/>
             </Box>
             <Box minWidth={35}>
-                <Typography variant="body2" color="textSecondary">{`${Math.round(
-                    value
-                )}%`}</Typography>
+                <Typography variant="body2" color="textSecondary">{`${value}%`}</Typography>
             </Box>
         </Box>
     );
