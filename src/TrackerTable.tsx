@@ -45,7 +45,7 @@ export const TrackerTable = ({trackers, expenses, onUpdate, onMutate}: TrackerTa
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{minWidth: 650}} aria-label="simple table">
+            <Table sx={{minWidth: 650}}>
                 <TableHead>
                     <TableRow>
                         <TableCell width={'30%'}>Name</TableCell>
@@ -58,7 +58,7 @@ export const TrackerTable = ({trackers, expenses, onUpdate, onMutate}: TrackerTa
                 <TableBody>
                     {trackers.map((tracker) => (
                         <TableRow
-                            key={tracker.name}
+                            key={tracker.tracker_id}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
                         >
                             <TableCell component="th" scope="row" width={'30%'}>
