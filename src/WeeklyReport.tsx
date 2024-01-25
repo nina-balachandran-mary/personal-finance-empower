@@ -1,6 +1,7 @@
 import {Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js';
 import {Doughnut} from 'react-chartjs-2';
 import {randomColorGenerator} from "./utils/randomColorGenerator";
+import {Box, Typography} from "@mui/material";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,5 +31,15 @@ export const WeeklyReport = ({categories, currencyCode}: WeeklyReportProps) => {
         }]
     }
 
-    return <div id="expenses"><Doughnut data={data}/></div>
+    return <Box id="expenses" sx={{
+        p: 4,
+        maxWidth: 600,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 4
+    }}>
+        <Typography variant={"subtitle1"}>Your weekly expenses visualized</Typography>
+        <Doughnut data={data}/></Box>
 }

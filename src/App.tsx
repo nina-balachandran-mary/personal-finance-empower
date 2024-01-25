@@ -3,6 +3,7 @@ import {Accounts} from "./Accounts";
 import {WeeklyReport} from "./WeeklyReport";
 import {WeeklyReport as WReport} from "./types/WeeklyReport";
 import './App.css';
+import {Alert, Box} from "@mui/material";
 
 export const App = () => {
     const [categories, setCategories] = useState<WReport>({data: {}, iso_currency_code: null})
@@ -13,17 +14,20 @@ export const App = () => {
             .then(jsonData => setCategories(jsonData))
             .catch(error => {
                 console.error(error)
-                return (<div>Unable to generate Weekly expenses chart at this time. Please try again later</div>)
             })
 
     }, [])
 
     return (
-        <div className="App">
-            <Accounts showAllAccounts={false}/>
+        <Box sx={{display: 'flex', justifyContent: 'space-around'}}>
+            <Box sx={{width: '50%'}}><Accounts showAllAccounts={false}/></Box>
             {/* Assumption: All account currencies is of the same type */}
-            {categories.data ? <WeeklyReport categories={categories.data} currencyCode={categories.iso_currency_code}/> : ''}
-        </div>
+            <Box sx={{minWidth: 800}}>{categories.data ?
+                <WeeklyReport categories={categories.data} currencyCode={categories.iso_currency_code}/> :
+                <Alert severity={"info"}>Unable to generate Weekly expenses chart at this time. Please try again
+                    later</Alert>}
+            </Box>
+        </Box>
     );
 }
 

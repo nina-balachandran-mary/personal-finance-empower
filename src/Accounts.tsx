@@ -1,5 +1,5 @@
 import {Account} from "./types/Account";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {AccountsSummary} from "./AccountsSummary";
 import {Button, Alert, Box} from "@mui/material";
@@ -20,6 +20,7 @@ export const Accounts = ({showAllAccounts}: AccountsProps) => {
     const MAX_DISPLAYED_ACCOUNTS = 3
     const [accounts, setAccounts] = useState<Account[]>([])
     const [currencyCode, setCurrencyCode] = useState('')
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch('http://localhost:3001/accounts')
@@ -57,8 +58,7 @@ export const Accounts = ({showAllAccounts}: AccountsProps) => {
                         <TableRow
                             key={account.account_id}
                             sx={{'&:last-child td, &:last-child th': {border: 0}, textDecoration: 'none'}}
-                            component={Link}
-                            to={'/transactions/' + account.account_id}
+                            onClick={() => navigate('/transactions/' + account.account_id)}
                         >
                             <TableCell component="th" scope="row" width={'30%'}>
                                 {account.official_name}
@@ -75,6 +75,9 @@ export const Accounts = ({showAllAccounts}: AccountsProps) => {
             </Table>
         </TableContainer> : <Alert severity="info">No accounts found.</Alert>}
         {(accounts.length > MAX_DISPLAYED_ACCOUNTS && (!showAllAccounts)) ?
-            <Button variant="contained" component={Link} to={'/accounts'}>View all ({accounts.length})</Button> : ''}
+            <Box sx={{display: 'flex', justifyContent: 'flex-end'}}><Button variant="contained" component={Link}
+                                                                            to={'/accounts'} sx={{marginTop: 4}}>View
+                all accounts
+                ({accounts.length})</Button> </Box> : ''}
     </Box>
 }
