@@ -1,8 +1,9 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Tracker} from "./types/Tracker";
-import {Box, Button, IconButton, LinearProgress, Modal, Tooltip} from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
-import {Delete, Edit, SaveAlt} from "@mui/icons-material";
+import {Box, Button, IconButton, Modal, Tooltip, Alert} from "@mui/material";
+import {Delete, Edit} from "@mui/icons-material";
+import {TrackerProgress} from "./TrackerProgress";
+import {WeeklyReport} from "./types/WeeklyReport";
 
 export enum ModalMode {
     Create = 'create',
@@ -17,6 +18,7 @@ export const Trackers = () => {
     const [trackerName, setTrackerName] = useState('')
     const [amount, setAmount] = useState(0)
     const [trackerCategory, setTrackerCategory] = useState('')
+    const [categories, setCategories] = useState<WeeklyReport>({data: {}, iso_currency_code: null})
     const currentTrackerId = useRef(0)
 
     const style = {
@@ -37,6 +39,14 @@ export const Trackers = () => {
             .then(jsonData => {
                 setTrackers(jsonData)
                 setInvalidateTrackers(false)
+            })
+
+        fetch('http://localhost:3001/weeklyExpenses')
+            .then(res => res.json())
+            .then(jsonData => setCategories(jsonData))
+            .catch(error => {
+                console.error(error)
+                return (<div>Unable to generate Weekly expenses chart at this time. Please try again later</div>)
             })
     }, [invalidateTrackers])
 
@@ -137,25 +147,32 @@ export const Trackers = () => {
         setShowModal(false)
     }
 
-    const getTrackerValue = () => {
-        return 0
+    const getTrackerValue = (current: number, total: number) => {
+        const percent = Math.floor(((current ?? 0) * 100) / total)
+        return percent
     }
 
-    return <div>{trackers.length > 0 ? trackers.map(tracker => <div
-            key={tracker.tracker_id}>{tracker.name} {tracker.amount} {tracker.personal_finance_category} {tracker.created_at}
-            <Tooltip title="Update">
-                <IconButton onClick={() => showUpdateModal(tracker)}>
-                    <Edit/>
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Delete">
-                <IconButton onClick={() => deleteTracker(tracker.tracker_id)}>
-                    <Delete/>
-                </IconButton>
-            </Tooltip>
-        </div>) :
-        <p>No trackers found</p>}
-        <Button onClick={showCreateModal}>Add new tracker</Button>
+    return <div>
+        <Box><Button variant="contained" onClick={showCreateModal}>Add new tracker</Button></Box>
+        {trackers.length > 0 ? trackers.map(tracker => <div
+                key={tracker.tracker_id}>{tracker.name} {tracker.amount} {tracker.personal_finance_category} {tracker.created_at}
+                <Tooltip title="Update">
+                    <IconButton onClick={() => showUpdateModal(tracker)}>
+                        <Edit/>
+                    </IconButton>
+                </Tooltip>
+                <Tooltip title="Delete">
+                    <IconButton onClick={() => deleteTracker(tracker.tracker_id)}>
+                        <Delete/>
+                    </IconButton>
+                </Tooltip>
+                <br/>
+                {categories.data !== null ? categories.data[tracker.personal_finance_category] < tracker.amount ?
+                    <TrackerProgress
+                        value={getTrackerValue(categories.data[tracker.personal_finance_category], tracker.amount)}/> :
+                    <Alert severity="info">Exceeded weekly budget for this tracker.</Alert> : ''}
+            </div>) :
+            <p>No trackers found</p>}
         <Modal onClose={closeModal} open={showModal}>
             <Box sx={style}>
                 <input type="text" value={trackerName} placeholder={'Tracker name'}
