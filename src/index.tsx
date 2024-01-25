@@ -8,26 +8,39 @@ import {Trackers} from "./Trackers";
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Navigation} from "./Navigation";
+import {ThemeProvider, createTheme} from "@mui/material";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
+const theme = createTheme({
+    typography: {
+        "fontFamily": `"Figtree", "Helvetica", "Arial", sans-serif`,
+        "fontSize": 14,
+        "fontWeightLight": 300,
+        "fontWeightRegular": 400,
+        "fontWeightMedium": 500
+    }
+})
+
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Navigation/>
-            <Routes>
-                <Route element={<App/>}
-                       path="/"/>
-                <Route element={<Accounts showAllAccounts={true}/>}
-                       path="/accounts"/>
-                <Route element={<Transactions/>}
-                       path="/transactions/:accountId"/>
-                <Route element={<Trackers/>}
-                       path="/trackers"/>
-            </Routes>
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <BrowserRouter>
+                <Navigation/>
+                <Routes>
+                    <Route element={<App/>}
+                           path="/"/>
+                    <Route element={<Accounts showAllAccounts={true}/>}
+                           path="/accounts"/>
+                    <Route element={<Transactions/>}
+                           path="/transactions/:accountId"/>
+                    <Route element={<Trackers/>}
+                           path="/trackers"/>
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
     </React.StrictMode>
 );
 

@@ -46,7 +46,6 @@ export const Trackers = () => {
             .then(jsonData => setCategories(jsonData))
             .catch(error => {
                 console.error(error)
-                return (<div>Unable to generate Weekly expenses chart at this time. Please try again later</div>)
             })
     }, [invalidateTrackers])
 
@@ -148,14 +147,13 @@ export const Trackers = () => {
     }
 
     const getTrackerValue = (current: number, total: number) => {
-        const percent = Math.floor(((current ?? 0) * 100) / total)
-        return percent
+        return Math.floor(((current ?? 0) * 100) / total)
     }
 
     return <div>
         <Box><Button variant="contained" onClick={showCreateModal}>Add new tracker</Button></Box>
         {trackers.length > 0 ? trackers.map(tracker => <div
-                key={tracker.tracker_id}>{tracker.name} {tracker.amount} {tracker.personal_finance_category} {tracker.created_at}
+                key={tracker.tracker_id}>{tracker.name} {tracker.amount} {tracker.personal_finance_category}
                 <Tooltip title="Update">
                     <IconButton onClick={() => showUpdateModal(tracker)}>
                         <Edit/>
