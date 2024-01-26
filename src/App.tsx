@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Accounts} from "./Accounts";
 import {WeeklyReport} from "./WeeklyReport";
 import {WeeklyReport as WReport} from "./types/WeeklyReport";
-import './App.css';
 import {Alert, Box} from "@mui/material";
 
 export const App = () => {

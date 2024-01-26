@@ -12,7 +12,7 @@ export const Navigation = () => {
     return (
         <Box sx={{width: '100%'}}>
             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                <Tabs value={tab} onChange={handleChange} aria-label="basic tabs example">
+                <Tabs value={tab} onChange={handleChange}>
                     <Tab label="Home" component={Link} to={"/"}/>
                     <Tab label="Accounts" component={Link} to={"/accounts"}/>
                     <Tab label="Trackers" component={Link} to={"/trackers"}/>

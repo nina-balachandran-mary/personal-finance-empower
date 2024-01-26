@@ -93,10 +93,10 @@
           "confidence_level": "VERY_HIGH"
         }
       ],
-      "date": "2024-01-24",
-      "datetime": "2024-01-24T15:10:09Z",
-      "authorized_date": "2024-01-24",
-      "authorized_datetime": "2024-01-24T08:01:58Z",
+      "date": "2024-01-28",
+      "datetime": "2024-01-28T15:10:09Z",
+      "authorized_date": "2024-01-28",
+      "authorized_datetime": "2024-01-28T08:01:58Z",
       "location": {
         "address": null,
         "city": null,
@@ -157,10 +157,10 @@
           "confidence_level": "VERY_HIGH"
         }
       ],
-      "date": "2024-01-16",
-      "datetime": "2024-01-16T11:01:01Z",
-      "authorized_date": "2024-01-16",
-      "authorized_datetime": "2024-01-16T10:34:50Z",
+      "date": "2024-01-28",
+      "datetime": "2024-01-28T11:01:01Z",
+      "authorized_date": "2024-01-28",
+      "authorized_datetime": "2024-01-28T10:34:50Z",
       "location": {
         "address": "13425 Community Rd",
         "city": "Poway",
@@ -222,10 +222,10 @@
           "confidence_level": "HIGH"
         }
       ],
-      "date": "2024-01-24",
-      "datetime": "2024-01-24T15:10:09Z",
-      "authorized_date": "2024-01-24",
-      "authorized_datetime": "2024-01-24T08:01:58Z",
+      "date": "2024-01-28",
+      "datetime": "2024-01-28T15:10:09Z",
+      "authorized_date": "2024-01-28",
+      "authorized_datetime": "2024-01-28T08:01:58Z",
       "location": {
         "address": null,
         "city": null,
@@ -286,10 +286,10 @@
           "confidence_level": "VERY_HIGH"
         }
       ],
-      "date": "2024-01-24",
-      "datetime": "2024-01-24T11:01:01Z",
-      "authorized_date": "2024-01-24",
-      "authorized_datetime": "2024-01-24T10:34:50Z",
+      "date": "2024-01-28",
+      "datetime": "2024-01-28T11:01:01Z",
+      "authorized_date": "2024-01-28",
+      "authorized_datetime": "2024-01-28T10:34:50Z",
       "location": {
         "address": "13425 Community Rd",
         "city": "Poway",
@@ -350,10 +350,10 @@
           "confidence_level": "VERY_HIGH"
         }
       ],
-      "date": "2024-01-24",
-      "datetime": "2024-01-24T11:01:01Z",
-      "authorized_date": "2024-01-24",
-      "authorized_datetime": "2024-01-24T10:34:50Z",
+      "date": "2024-01-28",
+      "datetime": "2024-01-28T11:01:01Z",
+      "authorized_date": "2024-01-28",
+      "authorized_datetime": "2024-01-28T10:34:50Z",
       "location": {
         "address": null,
         "city": null,
@@ -387,7 +387,7 @@
         "detailed": "ENTERTAINMENT",
         "confidence_level": "VERY_HIGH"
       },
-      "personal_finance_category_icon_url": "https://plaid-category-icons.plaid.com/ENTERTAINMENT.png",
+      "personal_finance_category_icon_url": "",
       "transaction_id": "lPNjeW1nR6CDn5okmGQ6hEpMo4lLNoSrzqDj4",
       "transaction_code": null,
       "transaction_type": "place"
